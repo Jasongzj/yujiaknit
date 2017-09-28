@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => 'sql.l245.vhostgo.com',
+    'hostname'        => '13.57.61.70',
     // 数据库名
-    'database'        => 'jason9351',
+    'database'        => 'yujia',
     // 用户名
-    'username'        => 'jason9351',
+    'username'        => 'root',
     // 密码
-    'password'        => 'gao199351',
+    'password'        => 'admin123',
     // 端口
     'hostport'        => '',
     // 连接dsn
