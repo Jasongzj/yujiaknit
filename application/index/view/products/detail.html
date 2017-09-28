@@ -1,0 +1,64 @@
+{include file="public/header"}
+
+<div class="container content">
+    <div class="breadnav">
+        <ol class="breadcrumb aboutus-nav">
+            <li><a href="{:url('index/index')}">HOME</a></li>
+            <li><a href="{:url('products/index', 'cate=1')}">Products</a></li>
+            <li><a href="{:url('products/index', 'cate='.$detail.cate_id)}">{$cate.name}</a></li>
+            <li>Basic Polo</li>
+        </ol>
+    </div>
+    <div class="col-sm-5 sku-image">
+        <div class="image-broad">
+            <img src="{$detail.img_url}">
+        </div>
+        <div class="sku-color">
+            <ul class="color-list">
+                {volist name="color" id="vo"}
+                <li class="color">
+                    <div class="color-detail" style="background-color:rgb({$vo.rgb}); {$vo.name=='WHITE'? 'border\: solid 1px #000;' : ''}"></div>
+                    <p>{$vo.name}</p>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-6 sku-info">
+        <div class="sku-name">
+            <h1>{$detail.name}</h1>
+            <span>{$detail.fabric},{$detail.gsm},{$detail.material},{$detail.attach}</span>
+        </div>
+        <hr>
+        <div class="sku-note-area">
+            <ol class="sku-note">
+                <li class="note">
+                    <h4 style="color: #d43f3a;">Note:</h4>
+                </li>
+                <li class="color-name">
+                    <span>1. Other colors can be based on your needs.</span>
+                </li>
+                <li class="color-name">
+                    <span>2. Grams can also be based on your needs.</span>
+                </li>
+                <li class="color-name">
+                    <span>3. The fabric/material also be based on your needs.</span>
+                </li>
+                <li class="color-name">
+                    <span>4. Also accept embroider and printing.</span>
+                </li>
+                <li class="color-name">
+                    <span>5. Your offer had better give me your target market.</span>
+                </li>
+            </ol>
+        </div>
+        <div class="inquire-area">
+            <a class="btn btn-danger" onclick="layerout('{:url('products/inquiry','detail='.$detail.id)}', 800, 600)"><h4 >CLICK HERE TO INQUIRE</h4></a>
+        </div>
+        <div class="sku-thumb">
+
+        </div>
+    </div>
+</div>
+
+{include file="public/footer"}

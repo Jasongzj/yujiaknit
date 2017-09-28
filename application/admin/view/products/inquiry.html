@@ -1,0 +1,108 @@
+<!--包含头部文件-->
+{include file="/public/header" /}
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<span class="l">
+			<a class="btn btn-primary radius" onclick="o2o_del('{:url('products/delInquiry')}')" href="javascript:;">
+				<i class="Hui-iconfont">&#xe600;</i> 批量删除
+			</a>
+		</span>
+	</div>
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
+			<thead>
+			<tr class="text-c">
+				<th width="20"><input class="check_all" name="" type="checkbox" value=""></th>
+				<th width="30">ID</th>
+				<th width="200">EnterProduct</th>
+				<th width="130">Products</th>
+				<th width="100">Name</th>
+				<th width="240">Email</th>
+				<th width="240">Quantity</th>
+				<th width="100">Market</th>
+				<th width="160">Create_Time</th>
+				<th width="180">Operation</th>
+			</tr>
+			</thead>
+			<tbody>
+				{notempty name="$p->data"}
+					{volist name="$p->data" id="vo"}
+					<tr class="text-c">
+						<td><input class="ids" name="id" type="checkbox" value="{$vo.id}"></td>
+						<td>{$vo.id}</td>
+						<td>{$vo.enter_product['name']}</td>
+						<td>{$vo.products}</td>
+						<td>{$vo.name}</td>
+						<td>{$vo.email}</td>
+						<td>{$vo.quantity}</td>
+						<td>{$vo.market}</td>
+						<td>{$vo.create_time}</td>
+						<td class="td-manage">
+							<!--<a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>-->
+							<a style="text-decoration:none" class="ml-5" onClick="o2o_del('{:url('products/delInquiry')}', '{$vo.id}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						</td>
+					</tr>
+					{/volist}
+				{else}
+				<tr class="text-c">
+					<td colspan="10">暂无内容</td>
+				</tr>
+				{/notempty}
+			</tbody>
+		</table>
+		{if condition="$p->pageNum gt 1"}
+			{$p->render}
+		{/if}
+	</div>
+</div>
+
+
+
+<!--包含底部文件-->
+{include file="/public/footer" /}
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script>
+    /*ajax提交信息表单*/
+    $("#submitBtn").click(function() {
+        var obj = $(this);
+        $.ajax({
+            url: "{:url('category/listorder')}",
+            type:'POST',
+            data:$('form').serialize(),
+            dataType:'json',
+            async:true,
+            success:function(result) {
+                if(result.code == 200) {
+                    obj.parents('form').submit(); //验证正确提交表单
+                }else if (result.code == 600){
+                    if (result.msg == 'nameRequired') {
+                        $("#notice_name").parent().addClass('has-error');
+                        $("#notice_name").css('display','inline');
+                    } else if (result.msg == 'emailRequired') {
+                        $("#notice_email").parent().addClass('has-error');
+                        $("#notice_email").css('display','inline');
+                    } else if (result.msg == 'emailUnformat') {
+                        $("#notice_correct_email").parent().addClass('has-error');
+                        $("#notice_correct_email").css('display','inline');
+                    } else if (result.msg == 'quantityRequired') {
+                        $("#notice_quantity").parent().addClass('has-error');
+                        $("#notice_quantity").css('display','block');
+                    } else if (result.msg == 'marketRequired') {
+                        $("#notice_market").parent().addClass('has-error');
+                        $("#notice_market").css('display','block');
+                    }
+                }
+            },
+            error:function(msg){
+            }
+        });
+        return false;
+    });
+
+</script>
+
+</body>
+</html>

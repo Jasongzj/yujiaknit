@@ -1,0 +1,592 @@
+    {include file="public/header"}
+    <!--轮播图-->
+    <div class="container">
+        <div id="Carousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#Carousel" data-slide-to="1" class=""></li>
+                <li data-target="#Carousel" data-slide-to="2" class=""></li>
+                <li data-target="#Carousel" data-slide-to="3" class=""></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <a href="{:url('products/index', 'cate=1')}"><img class="first-slide" src="__IMAGE__/banner/golfer1.jpg" alt="First slide"></a>
+                </div>
+                <div class="item">
+                    <a href="{:url('products/index', 'cate=1')}"><img class="second-slide" src="__IMAGE__/banner/baby-shirt1.jpg" alt="Second slide"></a>
+                </div>
+                <div class="item">
+                    <img class="third-slide" src="__IMAGE__/banner/cotton.jpg" alt="Third slide">
+                </div>
+                <div class="item">
+                    <img class="forth-slide" src="__IMAGE__/banner/container.jpg" alt="Forth slide">
+                </div>
+            </div>
+
+            <!--左右切图button-->
+            <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>-->
+        </div>
+    </div>
+
+    <!--产品模块-->
+    <div class="container">
+        <div class="section-title">
+            <p>PRODUCTS</p>
+        </div>
+    </div>
+
+    <div class="container home-cate">
+        <div class="row ">
+            {volist name="category" id="vo"}
+            <div class="col-xs-4 home-catelist">
+                <a class="home-cate-link"  href="{:url('index/products/index', 'cate='.$vo['id'])}">
+                    <div><img class="home-cate-img img-circle" src="{$vo.img_url}" alt="POLO"></div>
+                    <div class="home-cate-title">{$vo.name}</div>
+                </a>
+            </div>
+            {/volist}
+        </div>
+    </div>
+    <!--新闻动态-->
+    <div class="container">
+        <div class="full-section dynamic-section">
+            <div class="section">
+                <div class="section-title">
+                    <p>NEWS</p>
+                </div>
+                <div class="bd-home-dynamic-content">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12 news">
+                            <div class="bd-dynamic-news">
+                                <div class="dynamic-title1">Dynamic News</div>
+                                <div class="news-list">
+                                    <div class="news-item">
+                                        <div class="decoration">
+                                            <div class="news-circle">
+                                                <div class="solid-circle"></div>
+                                            </div>
+                                        </div>
+                                        <div class="news-box">
+                                            <a href="/home/index/news_detail/id/17708" class="news-title" data-id="17708" target="_blank">百度Q2净利同比增82.9% AI驱动强劲增长</a>
+                                            <div class="news-time">2017-07-28</div>
+                                        </div>
+                                    </div>
+                                    <div class="news-item">
+                                        <div class="decoration">
+                                            <div class="news-circle">
+                                                <div class="solid-circle"></div>
+                                            </div>
+                                        </div>
+                                        <div class="news-box">
+                                            <a href="/home/index/news_detail/id/17707" class="news-title" data-id="17707" target="_blank">百度与Paypal达成战略合作 海淘购物极致化体验来临</a>                                          <div class="news-time">2017-07-27</div>
+                                        </div>
+                                    </div>
+                                    <div class="news-item">
+                                        <div class="decoration">
+                                            <div class="news-circle">
+                                                <div class="solid-circle"></div>
+                                            </div>
+                                        </div>
+                                        <div class="news-box">
+                                            <a href="/home/index/news_detail/id/17706" class="news-title" data-id="17706" target="_blank">百度地图品牌全新升级 诠释“科技让出行更简单”</a>
+                                            <div class="news-time">2017-07-26</div>
+                                        </div>
+                                    </div>
+                                    <div class="news-item">
+                                        <div class="decoration">
+                                            <div class="news-circle">
+                                                <div class="solid-circle"></div>
+                                            </div>
+                                        </div>
+                                        <div class="news-box">
+                                            <a href="/home/index/news_detail/id/17703" class="news-title" data-id="17703" target="_blank">百度举办全球首个AI开发者大会  构建最完整AI开放生态</a>
+                                            <div class="news-time">2017-07-05</div>
+                                        </div>
+                                    </div>
+                                    <div class="news-item">
+                                        <div class="decoration">
+                                            <div class="news-circle">
+                                                <div class="solid-circle"></div>
+                                            </div>
+                                        </div>
+                                        <div class="news-box">
+                                            <a href="/home/index/news_detail/id/17704" class="news-title" data-id="17704" target="_blank">Apollo开放 陆奇表示Apollo要做汽车产业的安卓</a>
+                                            <div class="news-time">2017-07-05</div>
+                                        </div>
+                                    </div>
+                                    <div class="news-item">
+                                        <div class="decoration">
+                                            <div class="news-circle">
+                                                <div class="solid-circle"></div>
+                                            </div>
+                                        </div>
+                                        <div class="news-box">
+                                            <a href="/home/index/news_detail/id/17705" class="news-title" data-id="17705" target="_blank">百度发布DuerOS开放平台，激活AI开放生态系统</a>
+                                            <div class="news-time">2017-07-05</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="more-news">
+                                    <a href="#" target="_blank">
+                                        <span class="more-news-tip">More</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 subject">
+                            <div class="bd-dynamic-topic">
+                                <div class="dynamic-title1 topic-title">Topic</div>
+                                <div class="bd-topic-items">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <a href="/home/index/special/id/28" class="item" target="_blank">
+                                                <div class="img-outer">
+                                                    <div class="img-inner">
+                                                        <img class="card-img lazy" data-original="" alt="Card image" src="" style="display: inline;">
+                                                        <div class="card-img-bottomlay">百度发布Apollo计划</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <a href="/home/index/special/id/34" class="item" target="_blank">
+                                                <div class="img-outer">
+                                                    <div class="img-inner">
+                                                        <img class="card-img lazy" data-original="" alt="Card image" src="" style="display: inline;">
+                                                        <div class="card-img-bottomlay">百度AR复现北京九大城门</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <a href="/home/index/special/id/29" class="item" target="_blank">
+                                                <div class="img-outer">
+                                                    <div class="img-inner">
+                                                        <img class="card-img lazy" data-original="" alt="Card image" src="" style="display: inline;">
+                                                        <div class="card-img-bottomlay">百度无人车</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <a href="/home/index/special/id/31" class="item" target="_blank">
+                                                <div class="img-outer">
+                                                    <div class="img-inner">
+                                                        <img class="card-img lazy" data-original="" alt="Card image" src="" style="display: inline;">
+                                                        <div class="card-img-bottomlay">DuerOS</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--证件轮播-->
+    <div class="container">
+        <div class="section-title">
+            <p>CERTIFICATE</p>
+        </div>
+        <div class="wrap">
+            <div class="license">
+                <ul id="scroll">
+                <li><img src="__IMAGE__/2017001.jpg"  alt=""/></li>
+                <li><img src="__IMAGE__/2017005.jpg"  alt=""/></li>
+                <li><img src="__IMAGE__/2017006.jpg"  alt=""/></li>
+                <li><img src="__IMAGE__/2017001.jpg"  alt=""/></li>
+                <li><img src="__IMAGE__/2017005.jpg"  alt=""/></li>
+                <li><img src="__IMAGE__/2017006.jpg"  alt=""/></li>
+                </ul>
+                <ul id="scroll2"></ul>
+            </div>
+        </div>
+    </div>
+
+    {include file="public/footer"}
+
+    <div hidden class="container hidden-xs">
+        <!--左侧目录-->
+        <div class="col-xs-3 bg-color home-product-cates">
+            <ul class="nav nav-pills nav-stacked home-product-catelist">
+                <li class="home-product-cate color-white">POLO</li>
+                <li class="home-product-cate">T-SHIRT</li>
+                <li class="home-product-cate">VEST</li>
+                <li class="home-product-cate">SWEATER</li>
+                <li class="home-product-cate">HOODY</li>
+                <li class="home-product-cate">LONG SLEEVES</li>
+            </ul>
+        </div>
+        <!--右侧商品-->
+        <div class="col-xs-9 home-product-detail show0">
+            <div class="home-product-row row">
+                <div class="col-sm-4 home-product">
+                    <a class="home-product-link"  >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">Basic Polo</h4>
+                        <h6 class="home-product-subtitle">Pique,180gsm,65%ployester 35%cotton</h6>
+                    </a>
+                </div>
+                <div class="col-sm-4 home-product">
+                    <a class="home-product-link"    >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">Single Jersey Polo</h4>
+                        <h6 class="home-product-subtitle">single jersey,180gsm,100%cotton</h6>
+                    </a>
+                </div>
+                <div class="col-sm-4 home-product">
+                    <a class="home-product-link" href="#"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">School Polo</h4>
+                        <h6 class="home-product-subtitle">Pique,180gsm,100%ployester,children size</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="home-product-row row">
+                <div class="col-sm-4 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">Staff Polo</h4>
+                        <h6 class="home-product-subtitle">Pique, 180gsm,65%cotton 35%ployester,embroider</h6>
+                    </a>
+                </div>
+                <div class="col-sm-4 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">Advertise Polo</h4>
+                        <h6 class="home-product-subtitle">Pique, 180,100%ployester, printing</h6>
+                    </a>
+                </div>
+                <div class="col-sm-4 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div hidden class="col-xs-9 home-product-detail show1">
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"    >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 hidden-xs home-product">
+                    <a class="home-product-link" href="#"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div hidden class="col-xs-9 home-product-detail show2">
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"    >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 hidden-xs home-product">
+                    <a class="home-product-link" href="#"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div hidden class="col-xs-9 home-product-detail show3">
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"    >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 hidden-xs home-product">
+                    <a class="home-product-link" href="#"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div hidden class="col-xs-9 home-product-detail show4">
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"    >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 hidden-xs home-product">
+                    <a class="home-product-link" href="#"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div hidden class="col-xs-9 home-product-detail show5">
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link"    >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 hidden-xs home-product">
+                    <a class="home-product-link" href="#"   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="home-product-row row">
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-6 home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-sm hidden-xs home-product">
+                    <a class="home-product-link" href=""   >
+                        <img class="home-product-img" src="//openfile.meizu.com/group1/M00/01/9F/Cgbj0FlSYZCAMfJNAAtHG2nRyAc330_180x180.png" alt="魅蓝 E">
+                        <h4 class="home-product-title">魅蓝 E</h4>
+                        <h6 class="home-product-subtitle">特惠100元 享3期免息</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,55 @@
+{include file="public/header"}
+
+<!--栏目图-->
+<div class="container contact-bg">
+    <div class="row">
+    </div>
+</div>
+
+<!--contain-->
+<div class="container content">
+    <div class="row">
+        <!--左侧目录-->
+        <div class="col-xs-3 product-cates">
+            <ul class="nav nav-pills nav-stacked product-catelist">
+                <li class="product-cate">
+                    <h4>Category</h4>
+                </li>
+                {volist name="cate" id="vo"}
+                <li class="product-cate">
+                    <a href="{:url('index/products/index', 'cate='.$vo['id'])}" class="product-cate-link {if condition='$cate_id eq $vo["id"]'}bg-white{else/}bg-gray{/if}">
+                        <label>{$vo.name}</label>
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                    </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <!--右侧商品-->
+        <div class="col-xs-9">
+            <div class="product-row row">
+                {volist name="products" id="vo"}
+                <div class="col-xs-6 col-sm-4 product">
+                    <div class="product-detail">
+                        <a class="product-link" href="{:url('index/products/detail', 'id='.$vo.id)}">
+                            <div>
+                                <img class="product-img" src="{$vo.img_url}" alt="">
+                            </div>
+                            <div class="product-title"><h4>{$vo.name}</h4></div>
+                        </a>
+                        <div class="product-desc">
+                            <div>
+                            <h6>Fabric: {$vo.fabric}</h6>
+                            <h6>GSM: {$vo.gsm}</h6>
+                            <h6>Material: {$vo.material}</h6>
+                            {if condition="$vo['attach'] neq ''"}<h6>Attach: {$vo.attach}</h6>{/if}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/volist}
+            </div>
+        </div>
+    </div>
+</div>
+{include file="public/footer"}

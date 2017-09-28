@@ -1,0 +1,114 @@
+<footer>
+    <div class="footer-info">
+        <div class="container">
+            <!--<div class="row">
+                <div class="col-md-2 footer-item">
+                    <div class="footer-list">
+                        <h4>ABOUT YUJIA</h4>
+                        <ul>
+                            <li><a href="" target="_blank">About</a></li>
+                            <li><a href="">News</a></li>
+                            <li><a href="">###</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 footer-item">
+                    <div class="footer-list">
+                        <h4>PRODUCTS</h4>
+                        <ul>
+                            <li><a href="">POLO</a></li>
+                            <li><a href="">VEST</a></li>
+                            <li><a href="">SWEATER</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-5 footer-item">
+                    <div class="footer-wechat">
+                        <img class="img-responsive" src="http://www.clantrip.com/static/images/wechat.png">
+                        <p style="text-align: center; color: #fff; margin-top: 5px">WeChat:xxxxxx</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-7 footer-item footer-item-last">
+                    <div class="footer-contact">
+                        <ul>
+                            <li><div class="glyphicon glyphicon-earphone"></div><h4>010-64648731</h4></li>
+                            <li><div class="glyphicon glyphicon-envelope"></div><h4>mail</h4></li>
+                            <li><div class="glyphicon glyphicon-map-marker"></div><h5>Room1415, <br/>SHENHUA COMMERCIAL BUILDING,<br/>JIA BIN ROAD LUO HU District,<br/>Shenzhen, China</h5></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>-->
+            <div class="footer-nav">
+                <ul class="">
+                    <li class="">
+                        <a href="{:url('index/index')}">HOME</a>
+                    </li>
+                    <li class="">
+                        <a href="{:url('index/about/index')}">ABOUT US</a>
+                    </li>
+                    <li class="">
+                        <a href="{:url('index/products/index', 'cate=1')}">PRODUCTS</a >
+                    </li>
+                    <li class="">
+                        <a href="{:url('index/brands/index')}">BRANDS</a>
+                    </li>
+                    <li class="">
+                        <a href="{:url('index/news/index')}">NEWS</a>
+                    </li>
+                    <li class="">
+                        <a href="{:url('index/contact/index')}">CONTACT US</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>Copyright © SHENZHEN YUJIA IMPORT&EXPORT CO.,LTD</p>
+                <p>ICP:xxxxxxxx</p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/yujia.js"></script>
+<script src="__STATIC__/layer/layer.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#subscribeBtn").click(function() {
+            var obj = $(this);
+            $.ajax({
+                url:"{:url('index/subscribe')}",
+                type:'POST',
+                data:$('#subscribeInfo').serialize(),
+                dataType:'json',
+                async:true,
+                success:function(result) {
+                    if (result.code == 200) {
+                        layer.open({
+                            type: 2,
+                            area: [400+'px', 200 +'px'],
+                            fix: false, //不固定
+                            maxmin: true,
+                            shade:0.4,
+                            shadeClose: true, //点击遮罩关闭
+                            content: "{:url('index/subscribe')}"
+                        });
+                    } else if (result.code == 600) {
+                        console.log(result)
+                        if (result.msg == 'emailRequired') {
+                            $("#notice_subscribe").parent().addClass('has-error');
+                            $("#notice_subscribe").css('display','block');
+                        } else if (result.msg == 'emailUnformat') {
+                            $("#notice_correct_subscribe").parent().addClass('has-error');
+                            $("#notice_correct_subscribe").css('display','block');
+                        }
+                    }
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

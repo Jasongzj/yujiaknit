@@ -1,0 +1,62 @@
+<!--包含头部文件-->
+{include file="/public/header" /}
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<span class="l">
+			<a class="btn btn-primary radius" onclick="o2o_del('{:url('products/del')}')" href="javascript:;">
+				<i class="Hui-iconfont">&#xe600;</i> 批量删除
+			</a>
+		</span>
+	</div>
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
+			<thead>
+			<tr class="text-c">
+				<th width="20"><input class="check_all" name="" type="checkbox" value=""></th>
+				<th width="30">ID</th>
+				<th width="240">Email</th>
+				<th width="160">Subscribe_Time</th>
+				<th width="180">Operation</th>
+			</tr>
+			</thead>
+			<tbody>
+				{notempty name="$p->data"}
+					{volist name="$p->data" id="vo"}
+					<tr class="text-c">
+						<td><input class="ids" name="id" type="checkbox" value="{$vo.id}"></td>
+						<td>{$vo.id}</td>
+						<td>{$vo.email}</td>
+						<td>{$vo.create_time}</td>
+						<td class="td-manage">
+							<!--<a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>-->
+							<a style="text-decoration:none" class="ml-5" onClick="o2o_del('{:url('products/del')}', '{$vo.id}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						</td>
+					</tr>
+					{/volist}
+				{else/}
+					<tr class="text-c">
+						<td colspan="5">暂无内容</td>
+					</tr>
+				{/notempty}
+			</tbody>
+		</table>
+		{if condition="$p->pageNum gt 1"}
+			{$p->render}
+		{/if}
+	</div>
+</div>
+
+
+
+<!--包含底部文件-->
+{include file="/public/footer" /}
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script>
+    var SCOPE = {
+        'listorder_url': "{:url('category/listorder')}"
+    };
+
+</script>

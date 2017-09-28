@@ -1,0 +1,47 @@
+{include file="public/header"}
+
+<!--栏目图-->
+<div class="container news-bg">
+    <div class="row">
+    </div>
+</div>
+
+<!--新闻内容-->
+<div class="container content">
+    <div class="breadnav">
+        <ol class="breadcrumb aboutus-nav">
+            <li><a href="{:url('index/index')}">HOME</a></li>
+            <li>NEWS</li>
+        </ol>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-9 col-md-9">
+            <div class="news-list">
+                <h4>News</h4>
+                <ul>
+                {notempty name="list"}
+                    {volist name="list" id="news"}
+                    <li><a href="{:url('news/detail','id='.$news.id)}"></span>{$news.title}</a><span class="news-date">{$news.create_time}</span></li>
+                    {/volist}
+                {/notempty}
+                </ul>
+                {$list->render()}
+            </div>
+        </div>
+        <!--联系我们-->
+        <div class="col-sm-3">
+            <div class="sidebar">
+                <h4 class="title">Contact US</h4>
+                <ul class="list">
+                    <li><p class="font-size-14"><span class="glyphicon glyphicon-earphone"></span>+86 13544061709</p></li>
+                    <li><p class="font-size-14"><span class="glyphicon glyphicon-envelope"></span>mail</p></li>
+                    <li><p class="font-size-14"><span class="glyphicon glyphicon-map-marker"></span>Room1415,<br>ShenHua Commercial Building,JiaBin Road LuoHu District,Shenzhen, China</p></li>
+                    <li class="wechat"><img width="100%" src="__IMAGE__/icons/wx_contact.jpg"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{include file="public/footer"}

@@ -1,0 +1,76 @@
+<!--包含头部文件-->
+{include file="/public/header" /}
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<span class="l">
+			<a class="btn btn-primary radius" onclick="o2o_s_edit('添加新闻','{:url('news/add')}','1200','850')" href="javascript:;">
+				<i class="Hui-iconfont">&#xe600;</i> 添加新闻
+			</a>
+		</span>
+		<span class="r"></span>
+
+	</div>
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-hover table-sort">
+			<thead>
+			<tr class="text-c">
+				<th width="20"><input name="" type="checkbox" value=""></th>
+				<th width="30">ID</th>
+				<th width="">Title</th>
+				<th width="150">Author</th>
+				<th width="150">Source</th>
+				<th width="100">Listorder</th>
+				<th width="80">Status</th>
+				<th width="80">View_Count</th>
+				<th width="160">Create_Time</th>
+				<th width="160">Update_Time</th>
+				<th width="180">Operation</th>
+			</tr>
+			</thead>
+			<tbody>
+			{notempty name="$p->data"}
+				{volist name="$p->data" id="vo"}
+				<tr class="text-c">
+					<td><input name="" type="checkbox" value=""></td>
+					<td>{$vo.id}</td>
+					<td>{$vo.title}</td>
+					<td>{$vo.author}</td>
+					<td>{$vo.source}</td>
+					<td class="text-c listorder"><input size="3" attr-id="" name="listorder" value="{$vo.listorder}"></td>
+					<td class="td-status"><a href="" title="点击修改状态">{$vo.status}</a></td>
+					<td>{$vo.view_count}</td>
+					<td>{$vo.create_time}</td>
+					<td>{$vo.update_time}</td>
+					<td class="td-manage">
+						<a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑新闻','{:url('news/edit','id='.$vo.id)}','1200','850')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+						<a style="text-decoration:none" class="ml-5" attr-id="{$vo.id}" onClick="o2o_del('{:url('news/del')}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+					</td>
+				</tr>
+				{/volist}
+			{else/}
+				<tr class="text-c">
+					<td colspan="9">暂无内容</td>
+				</tr>
+			{/notempty}
+			</tbody>
+		</table>
+		{if condition="$p->pageNum gt 1"}
+			{$p->render}
+		{/if}
+	</div>
+</div>
+<div class="cl pd-5 bg-1 bk-gray mt-20 tp5-o2o"></div>
+
+<script>
+	var SCOPE = {
+	    'listorder_url': "{:url('category/listorder')}"
+	};
+</script>
+<!--包含底部文件-->
+{include file="/public/footer" /}
+
+</body>
+</html>
