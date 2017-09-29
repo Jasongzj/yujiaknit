@@ -21,7 +21,6 @@ class Basic extends Controller
     public function __construct(Request $request = null)
     {
         parent::__construct( $request );
-        Url::root('/index.php');
         //获取头部目录
         $category = Db::table('category')->where('status', 'neq', -1)->select();
         $this->assign('catelog', $category);
