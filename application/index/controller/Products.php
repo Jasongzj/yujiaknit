@@ -29,7 +29,7 @@ class Products extends Basic
         $cate = $cateModel->where($map)->field('id, name')->select();
 
         $cate_id = $this->request->param('cate');
-        $Model = Db::table('Products');
+        $Model = Db::table('products');
         $map = array(
             'cate_id' => $cate_id,
             'status' => array('neq', -1)
@@ -50,7 +50,7 @@ class Products extends Basic
     public function detail()
     {
         $id = $this->request->param('id');
-        $Model = Db::table('Products');
+        $Model = Db::table('products');
         $detail = $Model->where('id', $id)->select();
 
         $cateId = $detail[0]['cate_id'];
