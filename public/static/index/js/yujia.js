@@ -20,7 +20,7 @@ $(function() {
     var scroll=function(){
         $left-=1;//设置滚动速度为1
         $('.license').css('left',$left+'px');//left赋值
-        if($left<-1500){//当box值小于-1500px时，重置.box left值为0；
+        if($left<-800){//当box值小于-1500px时，重置.box left值为0；
             $('.license').css('left','0');
             $left=0;
         }
@@ -32,24 +32,6 @@ $(function() {
     },function(){
         setTimeout(scroll,100);
     });
-
-
-
-
-    /*setTimeout(function(){
-        var h = $('.home-product-detail').height() / 6;
-        console.log(2, h);
-        $('.home-product-cate').height(h).css('margin-top', 0).css('line-height', h + 'px');
-    },100);
-
-    $('.home-product-cate').hover( function(){
-        //移除类名
-        $('.home-product-cate').removeClass('color-white');
-        $(this).addClass('color-white');
-        var index = $(this).index();
-        $('.home-product-detail').hide();
-        $('.show' + index).show();
-    });*/
 
 });
 /*弹层*/
