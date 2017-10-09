@@ -17,7 +17,7 @@ class Category extends Basic
         $map = array(
             'status' => array('neq', -1)
         );
-        $cateList = Db::table('Category')->where($map)->select();
+        $cateList = Db::table('category')->where($map)->select();
 
         $p = new Page($cateList, 15);
         $this->assign('p', $p);
