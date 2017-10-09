@@ -7,8 +7,8 @@
  * Time: 12:23
  */
 return [
-    'host'=>'smtp',
+    'host'=>'smtp.qq.com',
     'port'=>25,
-    'username'=>'',
-    'password'=>'',
+    'username'=>'asa_ho@foxmail.com',
+    'password'=>'thsbkesbxzqqbdae',
 ];

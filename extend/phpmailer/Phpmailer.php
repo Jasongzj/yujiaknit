@@ -16,7 +16,8 @@
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.
  */
-
+namespace phpmailer;
+use phpmailer\Smtp;
 /**
  * PHPMailer - PHP email creation and transport class.
  * @package PHPMailer
@@ -177,7 +178,7 @@ class PHPMailer
 
     /**
      * Path to PHPMailer plugins.
-     * Useful if the SMTP class is not in the PHP include path.
+     * Useful if the Smtp class is not in the PHP include path.
      * @var string
      * @deprecated Should not be needed now there is an autoloader.
      */
@@ -216,7 +217,7 @@ class PHPMailer
     public $MessageDate = '';
 
     /**
-     * SMTP hosts.
+     * Smtp hosts.
      * Either a single hostname or multiple semicolon-delimited hostnames.
      * You can also specify a different port
      * for each host by using this format: [hostname:port]
@@ -229,14 +230,14 @@ class PHPMailer
     public $Host = 'localhost';
 
     /**
-     * The default SMTP server port.
+     * The default Smtp server port.
      * @var integer
-     * @TODO Why is this needed when the SMTP class takes care of it?
+     * @TODO Why is this needed when the Smtp class takes care of it?
      */
     public $Port = 25;
 
     /**
-     * The SMTP HELO of the message.
+     * The Smtp HELO of the message.
      * Default is $Hostname. If $Hostname is empty, PHPMailer attempts to find
      * one with the same method described above for $Hostname.
      * @var string
@@ -245,7 +246,7 @@ class PHPMailer
     public $Helo = '';
 
     /**
-     * What kind of encryption to use on the SMTP connection.
+     * What kind of encryption to use on the Smtp connection.
      * Options: '', 'ssl' or 'tls'
      * @var string
      */
@@ -260,7 +261,7 @@ class PHPMailer
     public $SMTPAutoTLS = true;
 
     /**
-     * Whether to use SMTP authentication.
+     * Whether to use Smtp authentication.
      * Uses the Username and Password properties.
      * @var boolean
      * @see PHPMailer::$Username
@@ -269,53 +270,53 @@ class PHPMailer
     public $SMTPAuth = false;
 
     /**
-     * Options array passed to stream_context_create when connecting via SMTP.
+     * Options array passed to stream_context_create when connecting via Smtp.
      * @var array
      */
     public $SMTPOptions = array();
 
     /**
-     * SMTP username.
+     * Smtp username.
      * @var string
      */
     public $Username = '';
 
     /**
-     * SMTP password.
+     * Smtp password.
      * @var string
      */
     public $Password = '';
 
     /**
-     * SMTP auth type.
+     * Smtp auth type.
      * Options are CRAM-MD5, LOGIN, PLAIN, NTLM, XOAUTH2, attempted in that order if not specified
      * @var string
      */
     public $AuthType = '';
 
     /**
-     * SMTP realm.
+     * Smtp realm.
      * Used for NTLM auth
      * @var string
      */
     public $Realm = '';
 
     /**
-     * SMTP workstation.
+     * Smtp workstation.
      * Used for NTLM auth
      * @var string
      */
     public $Workstation = '';
 
     /**
-     * The SMTP server timeout in seconds.
+     * The Smtp server timeout in seconds.
      * Default of 5 minutes (300sec) is from RFC2821 section 4.5.3.2
      * @var integer
      */
     public $Timeout = 300;
 
     /**
-     * SMTP class debug output mode.
+     * Smtp class debug output mode.
      * Debug output level.
      * Options:
      * * `0` No output
@@ -324,7 +325,7 @@ class PHPMailer
      * * `3` As 2 plus connection status
      * * `4` Low-level data output
      * @var integer
-     * @see SMTP::$do_debug
+     * @see Smtp::$do_debug
      */
     public $SMTPDebug = 0;
 
@@ -340,12 +341,12 @@ class PHPMailer
      * $mail->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";};
      * </code>
      * @var string|callable
-     * @see SMTP::$Debugoutput
+     * @see Smtp::$Debugoutput
      */
     public $Debugoutput = 'echo';
 
     /**
-     * Whether to keep SMTP connection open after each message.
+     * Whether to keep Smtp connection open after each message.
      * If this is set to true then to close the connection
      * requires an explicit call to smtpClose().
      * @var boolean
@@ -355,7 +356,7 @@ class PHPMailer
     /**
      * Whether to split multiple to addresses into multiple messages
      * or send them all in one message.
-     * Only supported in `mail` and `sendmail` transports, not in SMTP.
+     * Only supported in `mail` and `sendmail` transports, not in Smtp.
      * @var boolean
      */
     public $SingleTo = false;
@@ -369,7 +370,7 @@ class PHPMailer
 
     /**
      * Whether to generate VERP addresses on send.
-     * Only applicable when sending via SMTP.
+     * Only applicable when sending via Smtp.
      * @link https://en.wikipedia.org/wiki/Variable_envelope_return_path
      * @link http://www.postfix.org/VERP_README.html Postfix VERP info
      * @var boolean
@@ -467,8 +468,8 @@ class PHPMailer
     public static $validator = 'auto';
 
     /**
-     * An instance of the SMTP sender class.
-     * @var SMTP
+     * An instance of the Smtp sender class.
+     * @var Smtp
      * @access protected
      */
     protected $smtp = null;
@@ -640,7 +641,7 @@ class PHPMailer
     const STOP_CRITICAL = 2;
 
     /**
-     * SMTP RFC standard line ending.
+     * Smtp RFC standard line ending.
      */
     const CRLF = "\r\n";
 
@@ -666,7 +667,7 @@ class PHPMailer
      */
     public function __destruct()
     {
-        //Close any open SMTP connection nicely
+        //Close any open Smtp connection nicely
         $this->smtpClose();
     }
 
@@ -703,7 +704,7 @@ class PHPMailer
     }
     /**
      * Output debugging info via user-defined method.
-     * Only generates output if SMTP debug output is enabled (@see SMTP::$do_debug).
+     * Only generates output if Smtp debug output is enabled (@see Smtp::$do_debug).
      * @see PHPMailer::$Debugoutput
      * @see PHPMailer::$SMTPDebug
      * @param string $str
@@ -759,7 +760,7 @@ class PHPMailer
     }
 
     /**
-     * Send messages using SMTP.
+     * Send messages using Smtp.
      * @return void
      */
     public function isSMTP()
@@ -821,7 +822,7 @@ class PHPMailer
 
     /**
      * Add a "CC" address.
-     * @note: This function works with the SMTP mailer on win32, not with the "mail" mailer.
+     * @note: This function works with the Smtp mailer on win32, not with the "mail" mailer.
      * @param string $address The email address to send to
      * @param string $name
      * @return boolean true on success, false if address already used or invalid in some way
@@ -833,7 +834,7 @@ class PHPMailer
 
     /**
      * Add a "BCC" address.
-     * @note: This function works with the SMTP mailer on win32, not with the "mail" mailer.
+     * @note: This function works with the Smtp mailer on win32, not with the "mail" mailer.
      * @param string $address The email address to send to
      * @param string $name
      * @return boolean true on success, false if address already used or invalid in some way
@@ -1479,7 +1480,7 @@ class PHPMailer
         $to = implode(', ', $toArr);
 
         $params = null;
-        //This sets the SMTP envelope sender which gets turned into a return-path header by the receiver
+        //This sets the Smtp envelope sender which gets turned into a return-path header by the receiver
         if (!empty($this->Sender) and $this->validateAddress($this->Sender)) {
             // CVE-2016-10033, CVE-2016-10045: Don't pass -f if characters will be escaped.
             if (self::isShellSafe($this->Sender)) {
@@ -1510,27 +1511,27 @@ class PHPMailer
     }
 
     /**
-     * Get an instance to use for SMTP operations.
-     * Override this function to load your own SMTP implementation
-     * @return SMTP
+     * Get an instance to use for Smtp operations.
+     * Override this function to load your own Smtp implementation
+     * @return Smtp
      */
     public function getSMTPInstance()
     {
         if (!is_object($this->smtp)) {
-            $this->smtp = new SMTP;
+            $this->smtp = new Smtp;
         }
         return $this->smtp;
     }
 
     /**
-     * Send mail via SMTP.
+     * Send mail via Smtp.
      * Returns false if there is a bad MAIL FROM, RCPT, or DATA input.
      * Uses the PHPMailerSMTP class by default.
      * @see PHPMailer::getSMTPInstance() to use a different class.
      * @param string $header The message headers
      * @param string $body The message body
      * @throws phpmailerException
-     * @uses SMTP
+     * @uses Smtp
      * @access protected
      * @return boolean
      */
@@ -1589,10 +1590,10 @@ class PHPMailer
     }
 
     /**
-     * Initiate a connection to an SMTP server.
+     * Initiate a connection to an Smtp server.
      * Returns false if the operation failed.
      * @param array $options An array of options compatible with stream_context_create()
-     * @uses SMTP
+     * @uses Smtp
      * @access public
      * @throws phpmailerException
      * @return boolean
@@ -1711,12 +1712,12 @@ class PHPMailer
     }
 
     /**
-     * Close the active SMTP session if one exists.
+     * Close the active Smtp session if one exists.
      * @return void
      */
     public function smtpClose()
     {
-        if (is_a($this->smtp, 'SMTP')) {
+        if (is_a($this->smtp, 'Smtp')) {
             if ($this->smtp->connected()) {
                 $this->smtp->quit();
                 $this->smtp->close();
@@ -1750,9 +1751,9 @@ class PHPMailer
 
         // Define full set of translatable strings in English
         $PHPMAILER_LANG = array(
-            'authenticate' => 'SMTP Error: Could not authenticate.',
-            'connect_host' => 'SMTP Error: Could not connect to SMTP host.',
-            'data_not_accepted' => 'SMTP Error: data not accepted.',
+            'authenticate' => 'Smtp Error: Could not authenticate.',
+            'connect_host' => 'Smtp Error: Could not connect to Smtp host.',
+            'data_not_accepted' => 'Smtp Error: data not accepted.',
             'empty_message' => 'Message body empty',
             'encoding' => 'Unknown encoding: ',
             'execute' => 'Could not execute: ',
@@ -1763,10 +1764,10 @@ class PHPMailer
             'invalid_address' => 'Invalid address: ',
             'mailer_not_supported' => ' mailer is not supported.',
             'provide_address' => 'You must provide at least one recipient email address.',
-            'recipients_failed' => 'SMTP Error: The following recipients failed: ',
+            'recipients_failed' => 'Smtp Error: The following recipients failed: ',
             'signing' => 'Signing Error: ',
-            'smtp_connect_failed' => 'SMTP connect() failed.',
-            'smtp_error' => 'SMTP server error: ',
+            'smtp_connect_failed' => 'Smtp connect() failed.',
+            'smtp_error' => 'Smtp server error: ',
             'variable_set' => 'Cannot set or reset variable: ',
             'extension_missing' => 'Extension missing: '
         );
@@ -3251,10 +3252,10 @@ class PHPMailer
                     $msg .= ' Detail: '. $lasterror['detail'];
                 }
                 if (!empty($lasterror['smtp_code'])) {
-                    $msg .= ' SMTP code: ' . $lasterror['smtp_code'];
+                    $msg .= ' Smtp code: ' . $lasterror['smtp_code'];
                 }
                 if (!empty($lasterror['smtp_code_ex'])) {
-                    $msg .= ' Additional SMTP info: ' . $lasterror['smtp_code_ex'];
+                    $msg .= ' Additional Smtp info: ' . $lasterror['smtp_code_ex'];
                 }
             }
         }
@@ -3310,7 +3311,7 @@ class PHPMailer
 
         if (array_key_exists($key, $this->language)) {
             if ($key == 'smtp_connect_failed') {
-                //Include a link to troubleshooting docs on SMTP connection failure
+                //Include a link to troubleshooting docs on Smtp connection failure
                 //this is by far the biggest cause of support questions
                 //but it's usually not PHPMailer's fault.
                 return $this->language[$key] . ' https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting';
@@ -4025,7 +4026,7 @@ class PHPMailer
  * PHPMailer exception handler
  * @package PHPMailer
  */
-class phpmailerException extends Exception
+class phpmailerException extends \Exception
 {
     /**
      * Prettify error message output

@@ -1,0 +1,50 @@
+<!--包含头部文件-->
+{include file="/public/header" /}
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<article class="page-container">
+	<form class="form form-horizontal"  method="post" action="{:url('email/send')}">
+		基本信息：
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">邮箱地址：</label>
+			<div class="formControls col-xs-8 col-sm-3">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">邮件标题:</label>
+			<div class="formControls col-xs-8 col-sm-3 username">
+				<input type="text" class="input-text" value="" placeholder="" id="title" name="title">
+			</div>
+		</div>
+
+		<div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">邮件内容：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <script id="editor"  type="text/plain" name="content" style="width:80%;height:300px;"></script>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+			<button  class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 发送</button>
+		</div>
+		</div>
+	</form>
+</article>
+
+
+
+<!--包含底部文件-->
+{include file="/public/footer" /}
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/ueditor/1.4.3/ueditor.config.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<!--分配编辑器-->
+<script>
+    $(function(){
+        var ue = UE.getEditor('editor');
+    });
+</script>
+
+</body>
+</html>

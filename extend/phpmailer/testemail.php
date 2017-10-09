@@ -1,47 +1,47 @@
 <?php
 /**
- * This example shows making an SMTP connection with authentication.
+ * This example shows making an Smtp connection with authentication.
  */
-
-//SMTP needs accurate times, and the PHP time zone MUST be set
+namespace phpmailer;
+//Smtp needs accurate times, and the PHP time zone MUST be set
 //This should be done in your php.ini, but this is how to do it if you don't have access to that
 header("content-type:text/html;charset=utf-8");
-require 'class.phpmailer.php';
-require 'class.smtp.php';
+require 'Phpmailer.php';
+require 'Smtp.php';
 date_default_timezone_set('PRC');//set time
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
-//Tell PHPMailer to use SMTP
+//Tell PHPMailer to use Smtp
 $mail->isSMTP();
-//Enable SMTP debugging
+//Enable Smtp debugging
 // 0 = off (for production use)
 // 1 = client messages
 // 2 = client and server messages
-$mail->SMTPDebug = 2;
+//$mail->SMTPDebug = 2;
 //Ask for HTML-friendly debug output
 $mail->Debugoutput = 'html';
 //Set the hostname of the mail server
-$mail->Host = "mail.example.com";
-//Set the SMTP port number - likely to be 25, 465 or 587
+$mail->Host = "smtp.qq.com";
+//Set the Smtp port number - likely to be 25, 465 or 587
 $mail->Port = 25;
-//Whether to use SMTP authentication
+//Whether to use Smtp authentication
 $mail->SMTPAuth = true;
-//Username to use for SMTP authentication
-$mail->Username = "yourname@example.com";
-//Password to use for SMTP authentication
-$mail->Password = "yourpassword";
+//Username to use for Smtp authentication
+$mail->Username = "asa_ho@foxmail.com";
+//Password to use for Smtp authentication
+$mail->Password = "thsbkesbxzqqbdae";
 //Set who the message is to be sent from
-$mail->setFrom('from@example.com', 'First Last');
+$mail->setFrom('asa_ho@foxmail.com', 'Asa Ho');
 //Set an alternative reply-to address
 //$mail->addReplyTo('replyto@example.com', 'First Last');
 //Set who the message is to be sent to
-$mail->addAddress('whoto@example.com', 'John Doe');
+$mail->addAddress('1020071657@qq.com', 'Chares Ho');
 //Set the subject line
-$mail->Subject = 'PHPMailer SMTP test';
+$mail->Subject = 'PHPMailer Smtp test';
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->msgHTML();
+$mail->msgHTML('dandan-test');
 //Replace the plain text body with one created manually
 //$mail->AltBody = 'This is a plain-text message body';
 //Attach an image file

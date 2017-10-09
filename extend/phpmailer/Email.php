@@ -48,7 +48,7 @@ class Email{
             //Set an alternative reply-to address
             //$mail->addReplyTo('replyto@example.com', 'First Last');
             //Set who the message is to be sent to
-            $mail->addAddress ($to);
+            $mail->addAddress ($to, 'Chares Ho');
             //Set the subject line
             $mail->Subject = $title;
             //Read an HTML message body from an external file, convert referenced images to embedded,
@@ -61,10 +61,10 @@ class Email{
 
             //send the message, check for errors
             if (!$mail->send()) {
-                //echo "Mailer Error: " . $mail->ErrorInfo;
+                echo "Mailer Error: " . $mail->ErrorInfo;
                 return false;
             } else {
-                //echo "Message sent success!";
+                echo "Message sent success!";
                 return true;
             }
         }catch (phpmailerException $e){
