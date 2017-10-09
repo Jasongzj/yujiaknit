@@ -1010,6 +1010,6 @@ dl, dt, td, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, l
     margin-bottom: 30px;
 }
 .news-content p img {
-    width: 100%;
+    max-width: 100%;
 }
 
