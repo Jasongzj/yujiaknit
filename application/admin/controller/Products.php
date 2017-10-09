@@ -53,10 +53,10 @@ class Products extends Basic
             if ($post) {
                 $post = clean_input( $post );
                 $file = Db::table( 'products' )->where( 'id', $post['id'] )->find();
-                if ($post['img_url'] != $file['img_url']) {
-                    //删除旧照片
+                /*if ($post['img_url'] != $file['img_url']) {
+                    //删除旧照片 todo::
                     unlink("..".$file['img_url']);
-                }
+                }*/
 
                 $proId = Db::table( 'products' )->where( 'id', $post['id'] )->update( $post );
                 if ($proId) {
