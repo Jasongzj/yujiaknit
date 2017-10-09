@@ -15,7 +15,7 @@ class Products extends Basic
 {
     public function index()
     {
-        $productList = Db::table( 'Products' )->where('status', 'neq', -1)->select();
+        $productList = Db::table( 'products' )->where('status', 'neq', -1)->select();
 
         $p = new Page( $productList, 15 );
 
