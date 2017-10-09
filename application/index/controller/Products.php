@@ -59,7 +59,7 @@ class Products extends Basic
         //获取颜色
         $cateColor = Db::table('category_color')->where('cate_id', $cateId)->select();
         $colorIds = array_column($cateColor,'color_id');
-        $color = Db::table('Color')->where('id','in', $colorIds)->order('listorder')->select();
+        $color = Db::table('color')->where('id','in', $colorIds)->order('listorder')->select();
 
         $this->assign('color', $color);
         $this->assign('detail', $detail[0]);

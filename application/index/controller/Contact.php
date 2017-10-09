@@ -22,7 +22,6 @@ class Contact extends Basic
     {
         $param = $this->request->post();
         $param = clean_input($param);
-        dump($param);
         $this->error('sorry');
     }
 }
