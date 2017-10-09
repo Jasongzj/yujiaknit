@@ -16,7 +16,7 @@ class News extends Basic
         $map = array(
             'status' => array('neq', -1)
         );
-        $list = Db::name('news')->where($map)->order('create_time')->paginate('20');
+        $list = Db::name('news')->where($map)->order('create_time desc')->paginate('20');
         $this->assign('list', $list);
         $this->assign('nav', 'news');
         return $this->fetch();
