@@ -75,3 +75,11 @@ function clean_input($param)
     }
     return $param;
 }
+
+/**
+ * 对密码进行加密
+ */
+function getMD5password($password)
+{
+    return MD5(config('MD5_PRE').$password);
+}
